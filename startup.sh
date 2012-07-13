@@ -5,6 +5,6 @@
 
 # Replace web root with ours.
 rm -rf /tmp/www
-ln -s /tmp/ramfs/server/hisense/www /tmp/www
+ln -s /tmp/ramfs/server/heightened-sense/www /tmp/www
 
 
