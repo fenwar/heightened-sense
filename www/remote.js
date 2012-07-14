@@ -8,12 +8,13 @@ function remote_key (event) {
 }
 
 function send_key (keycode) {
-    $("#keybug").text(keycode).css("color", "red");
+    //var s = String.fromCharCode(keycode)
     $.ajax("cgi-bin/receiver.cgi?" + keycode, {
         complete: function () {
             $("#keybug").css("color", "green");
         }
     });
+    $("#keybug").text(keycode).css("color", "red");
 }
 
 $(document).ready(function () {
