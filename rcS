@@ -25,10 +25,10 @@ if [ -f $DEFAULT_AP_DIR/DvdPlayer ] && [ -x $DEFAULT_AP_DIR/DvdPlayer ]; then
 	cd $DEFAULT_AP_DIR
 	if [ -f $DEFAULT_AP_DIR/RootApp ] && [ -x $DEFAULT_AP_DIR/RootApp ]; then
 		echo Running dvdplayer with RootApp
-		./RootApp DvdPlayer&
+		#PF ./RootApp DvdPlayer&
 	else
 		echo Running dvdplayer
-		./DvdPlayer&
+		#PF ./DvdPlayer&
 	fi
 else
 	/etc/dvdplayer/script/run_tail
@@ -51,4 +51,22 @@ if [ "$SIGNATURE" != "VERONA__" ]; then
 fi
 
 echo 2 /tmp/hdd/volumes/HDD1/ > /sys/realtek_boards/misc_operations
+
+# BEGIN PAUL'S SHARE MAPPING
+
+mkdir -p /tmp/ramfs/volumes/A:
+mkdir -p /tmp/ramfs/server
+
+echo " Downloads" >> /tmp/ramfs/labels/A:
+
+mount -t cifs //192.168.1.1/downloads /tmp/ramfs/volumes/A: -o username=media,password=media 2>> /tmp/log/mount.log
+mount -t cifs //192.168.1.1/code /tmp/ramfs/server -o username=media,password=media 2>> /tmp/log/mount.log
+
+# END PAUL'S SHARE MAPPING
+
+# BEGIN PAUL'S WEB SERVER HACKING
+
+. /tmp/ramfs/server/heightened-sense/startup.sh
+
+# END PAUL'S WEB SERVER HACKING
 
