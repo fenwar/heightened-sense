@@ -17,6 +17,12 @@ function send_key (keycode) {
     $("#keybug").text(keycode).css("color", "red");
 }
 
+function stylify () {
+    // apply various styles
+    
+    
+}
+
 $(document).ready(function () {
     $("button.remote").click(remote_button);
     $(window).keypress(remote_key);

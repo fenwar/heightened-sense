@@ -1,15 +1,41 @@
 <html>
     <head>
         <title>YES</title>
+        <link rel="stylesheet" href="default.css"/>
     </head>
     <body>
-        <h1>YES <span id="keybug"></span></h1>
+        <table id="controlpad">
+            <tr>
+                <td width="33%"><button class="remote smallsquare" id="standby" value="111">Standby</button></td>
+                <td width="33%"><button class="remote square" id="move_up" value="87">Up/FFWD</button></td>
+                <td width="33%"><button class="remote smallsquare" id="menu" value="123">Menu</button></td>
+            </tr>
+            <tr>
+                <td width="33%"><button class="remote square" id="move_left" value="65">Left/Prev</button></td>
+                <td width="33%"><button class="remote square" id="ok" value="32">OK</button></td>
+                <td width="33%"><button class="remote square" id="move_right" value="68">Right/Next</button></td>
+            </tr>
+            <tr>
+                <td width="33%">&nbsp;</td>
+                <td width="33%"><button class="remote square" id="move_down" value="88">Down/Rewind</button></td>
+                <td width="33%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="33%"><button class="remote square" id="stop" value="81">Stop</button></td>
+                <td width="33%"><button class="remote square" id="play" value="83">Play/Pause</button></td>
+                <td width="33%"><button class="remote square" id="settings" value="/">Settings</button></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h1>YES <span id="keybug"></span></h1>
+                </td>
+            </tr>
+        </table>
+        
+        
+            <button class="remote" id="volume_up" value="86">Volume Up</button>
 
-        <div id="controlpad">
-            <button class="remote" id="volume_up" value="86"/>Volume Up</button>
-
-            <button class="remote" id="volume_down" value="118"/>Volume Down</button>
-        </div>
+            <button class="remote" id="volume_down" value="118">Volume Down</button>
 
         <p><a href="cgi-bin/fun.cgi">What kind of fun can we have with this thing then?</a></p>
         <p><a href="cgi-bin/restart.cgi">Run the startup script again.</a></p>
