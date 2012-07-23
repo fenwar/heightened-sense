@@ -7,6 +7,6 @@ echo "<h1>Restart</h1>"
 echo "<p>Running the startup script now.</p>"
 echo "</body></html>"
 
-. ../../startup.sh &
+../../startup.sh & > /dev/null
 
 

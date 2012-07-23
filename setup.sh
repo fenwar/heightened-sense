@@ -42,16 +42,21 @@ swapon /dev/sda2
 # Later on we can figure out which bits we actually need beyond Optware
 # or even make /bin, /lib etc point to /opt/bin, /opt/lib. 
 
-mount --bind /bin $PFDRV/bin
-mount --bind /dev $PFDRV/dev
-mount --bind /etc $PFDRV/etc
-mount --bind /lib $PFDRV/lib
-mount --bind /mnt $PFDRV/mnt
-mount --bind /proc $PFDRV/proc
-mount --bind /sbin $PFDRV/sbin
-mount --bind /sys $PFDRV/sys
-mount --bind /tmp $PFDRV/tmp
-mount --bind /usr $PFDRV/usr
+## Don't do these - copy our own root fs
+# Note some of these should be rbind
+#mount --bind /bin $PFDRV/bin
+#mount --bind /etc $PFDRV/etc
+#mount --bind /lib $PFDRV/lib
+#mount --bind /mnt $PFDRV/mnt
+#mount --bind /sbin $PFDRV/sbin
+#mount --bind /tmp $PFDRV/tmp
+#mount --rbind /usr $PFDRV/usr
+
+
+
+mount --rbind /dev $PFDRV/dev
+mount --rbind /proc $PFDRV/proc
+mount --rbind /sys $PFDRV/sys
 
 
 # dev
