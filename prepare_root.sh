@@ -10,8 +10,8 @@ export PFDAT=/tmp/usbmounts/sda3
 # mount usb drive rewritably
 umount /tmp/usbmounts/sda1
 umount /tmp/usbmounts/sda3
-mount -o rw /dev/sda1 /tmp/usbmounts/sda1
-mount -o rw /dev/sda3 /tmp/usbmounts/sda3
+mount -o rw /dev/sda1 $PFDRV
+mount -o rw /dev/sda3 $PFDRV/mnt/data
 
 # enable swap
 swapon /dev/sda2
@@ -20,6 +20,9 @@ swapon /dev/sda2
 mount --rbind /dev $PFDRV/dev
 mount --rbind /proc $PFDRV/proc
 mount --rbind /sys $PFDRV/sys
+
+# And why not bind mount the vault while we're at it
+mount -t cifs -o user=media,password=media,rw //192.168.1.1/downloads $PFDRV/mnt/vault/downloads
 
 # Chroot into the new filesystem and off we go!
 #chroot $PFDRV
